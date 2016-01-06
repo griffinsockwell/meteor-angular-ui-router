@@ -1,0 +1,18 @@
+<ul>
+
+  <li class="planet-header">
+    <h1>Facts for {{pc.planetPage}}</h1>
+  </li>
+
+  <div ng-if="pc.hasFacts">
+    <li ng-repeat="fact in pc.facts" class="fact-card">
+      <div ng-include="'client/FactCard/fact-card.html'" ng-controller="FactCardCtrl as fc">
+      </div>
+    </li>
+  </div>
+
+  <div ng-if="!pc.hasFacts" class="no-facts">
+    No users have submitted facts for this planet.
+  </div>
+
+</ul>

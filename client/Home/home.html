@@ -1,0 +1,20 @@
+<ul>
+
+  <li class="home-header">
+    <h1>Planet Facts</h1>
+    <small>Using Angular and UI-Router</small>
+  </li>
+
+
+  <div ng-if="hc.hasFacts">
+    <li ng-repeat="fact in hc.facts" class="fact-card">
+      <div ng-include="'client/FactCard/fact-card.html'" ng-controller="FactCardCtrl as fc">
+      </div>
+    </li>
+  </div>
+
+  <div ng-if="!hc.hasFacts" class="no-facts">
+    Create an account and add facts for your favorite planets!
+  </div>
+
+</ul>

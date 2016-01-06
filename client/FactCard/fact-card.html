@@ -1,0 +1,24 @@
+<div>
+  <p>
+    <a class="fact-author" href="/author/{{fact.author}}">{{fact.author}}</a> |
+    <a class="fact-planet" href="/planet/{{fact.planet}}">{{fact.planet}}</a> |
+    <span class="fact-time">{{fc.formatTime(fact.submitted)}}</span>
+    <span ng-if="fc.editing && fc.factOwner(fact)">
+      - <button ng-click="fc.editFact()" class="cancel">Cancel</button>
+    </span>
+    <span ng-if="!fc.editing && fc.factOwner(fact)">
+      - <button ng-click="fc.editFact()" class="update">Edit</button>
+      | <button ng-click="fc.removeFact(fact)" class="delete">Delete</button>
+    </span>
+  </p>
+</div>
+
+<form ng-if="fc.editing" ng-submit="fc.updateFact(fact)" class="update-fact">
+  <textarea id="updateFactChars" ng-keyup="fc.updateCount()" ng-model="fact.fact" maxlength="160" placeholder="Write your fact here...">{{fact.fact}}</textarea>
+  <div>
+    <span>{{fc.charCount}}</span>
+    <input type="submit" value="Save" ng-disabled="fc.submitDisabled" />
+  </div>
+</form>
+
+<p ng-if="!fc.editing" class="fact-text">{{fact.fact}}</p>

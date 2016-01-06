@@ -1,0 +1,25 @@
+<div ng-if="ff.formVisible" ng-click="ff.showFactForm()" class="hide-form">
+  <button>- Cancel</button>
+</div>
+
+<form ng-if="ff.formVisible" ng-submit="ff.addFact(newFact)" class="new-fact">
+  <select ng-model="newFact.planet" ng-init="newFact.planet = 'Mercury'">
+    <option value="Mercury">Mercury</option>
+    <option value="Venus">Venus</option>
+    <option value="Earth">Earth</option>
+    <option value="Mars">Mars</option>
+    <option value="Jupiter">Jupiter</option>
+    <option value="Saturn">Saturn</option>
+    <option value="Uranus">Uranus</option>
+    <option value="Neptune">Neptune</option>
+  </select>
+  <textarea id="newFactChars" ng-keyup="ff.updateCount()" ng-model="newFact.fact" maxlength="160" placeholder="Write your fact here..."></textarea>
+  <div>
+    <span>{{ff.charCount}}</span>
+    <input type="submit" value="Submit" ng-disabled="ff.submitDisabled" />
+  </div>
+</form>
+
+<div ng-if="!ff.formVisible" ng-click="ff.showFactForm()" class="show-form">
+  <button>+ Add New Fact</button>
+</div>

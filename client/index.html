@@ -1,0 +1,35 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Planet Facts - Angular</title>
+  <link href='https://fonts.googleapis.com/css?family=Muli|Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+  <base href="/">
+</head>
+
+<body>
+  <div ng-app="planet-facts">
+
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <login-buttons></login-buttons>
+          </li>
+          <li ng-if="$auth.currentUser">
+            <a href="{{'/author/' + $auth.currentUser.username}}">My Facts</a>
+          </li>
+          <li>
+            <a href="/">Home</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <div ui-view></div>
+    </section>
+
+  </div>
+</body>

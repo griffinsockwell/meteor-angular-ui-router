@@ -1,0 +1,23 @@
+<ul>
+
+  <li class="author-header">
+    <h1>Facts from {{ac.authorPage}}</h1>
+  </li>
+
+  <li ng-if="ac.canAddFact">
+    <div ng-include="'client/Author/FactForm/fact-form.html'" ng-controller="FactFormCtrl as ff">
+    </div>
+  </li>
+
+  <div ng-if="ac.hasFacts">
+    <li ng-repeat="fact in ac.facts" class="fact-card">
+      <div ng-include="'client/FactCard/fact-card.html'" ng-controller="FactCardCtrl as fc">
+      </div>
+    </li>
+  </div>
+
+  <div ng-if="!ac.hasFacts" class="no-facts">
+    This user has not submitted any facts yet.
+  </div>
+
+</ul>
